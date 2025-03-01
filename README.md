@@ -17,3 +17,14 @@ debe recordar las áreas visitadas y evitar repetir caminos ya explorados.
 El agente explora un mapa representado como una matriz de `filas x columnas`. En cada paso, el agente verifica las celdas adyacentes (arriba, abajo, izquierda, derecha) y se mueve aleatoriamente a una celda no visitada. Si no hay celdas adyacentes sin visitar, el agente finaliza la exploración.
 
 El problema se compone de un mapa, Posicion actual, Movimiento y Exploración.
+
+# Problema 3 - Agente de navegacion automata (Metas)
+
+## Descripción
+Crea un agente que tenga como meta encontrar la salida en un laberinto de tamaño 5x5. Debe
+buscar la ruta más corta para alcanzar la meta
+
+## Funcionamiento
+El agente recibe un laberinto en forma de matriz y un punto de inicio. Luego, utiliza el algoritmo BFS para explorar todas las posibles rutas desde el punto de inicio hasta la meta, evitando las paredes. Una vez encontrada la ruta, el agente muestra el laberinto con la ruta seguida marcada con el símbolo `Z`.
+
+Se crea un Laberinto por medio de una matriz, se hace un punto de inicio, se busca una ruta y se visualiza la ruta.

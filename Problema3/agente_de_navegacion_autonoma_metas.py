@@ -9,25 +9,54 @@ class AgenteNavegacion:
 
     def encontrar_meta(self):
         """Encuentra la meta para salir del laberinto M"""
-        # Logica para encontrar la meta
-        pass
+        for i in range(self.filas):
+            for j in range(self.columnas):
+                if self.laberinto[i][j] == 'M':
+                    return (i, j)
+        return None
 
     def es_valido(self, x, y):
         """Una posicion valida para el laberinto."""
-        # Logica para verificar la posicion valida
-        pass
+        return 0 <= x < self.filas and 0 <= y < self.columnas and self.laberinto[x][y] != '#'
 
     def encontrar_ruta(self, inicio):
         """Se usa BFS para encontrar una buena ruta"""
-        # Logica para encontra la ruta mas corta
-        pass
+        cola = deque()
+        cola.append((inicio, [inicio]))  # (posición momentanea y ruta)
+        visitado = set()
+
+        while cola:
+            (x, y), ruta = cola.popleft()
+
+            if (x, y) == self.meta:
+                return ruta  # Devuelve la ruta completa, incluyendo la meta
+
+            if (x, y) in visitado:
+                continue
+            visitado.add((x, y))
+
+            # Movimientos: arriba, abajo, izquierda, derecha
+            movimientos = [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
+
+            for nueva_x, nueva_y in movimientos:
+                if self.es_valido(nueva_x, nueva_y):
+                    cola.append(((nueva_x, nueva_y), ruta + [(nueva_x, nueva_y)]))
+
+        return None  # No se encuentra una ruta
 
     def mostrar_ruta(self, ruta):
         """Muestra la ruta seguida por el agente."""
-        # Logica para buscar la ruta del laberinto
-        pass
+        for i in range(self.filas):
+            for j in range(self.columnas):
+                if (i, j) in ruta:
+                    print('Z', end=' ')  # Punto del Agente Z
+                elif self.laberinto[i][j] == 'M':
+                    print('M', end=' ')  # Mostrar la meta
+                else:
+                    print(self.laberinto[i][j], end=' ')
+            print()
 
-# Se crea el laberinto
+# Creación de laberinto
 laberinto = [
     ['#', ' ', ' ', '#', '#'],
     ['#', '#', ' ', ' ', '#'],
