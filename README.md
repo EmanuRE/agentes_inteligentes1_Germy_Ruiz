@@ -28,3 +28,14 @@ buscar la ruta más corta para alcanzar la meta
 El agente recibe un laberinto en forma de matriz y un punto de inicio. Luego, utiliza el algoritmo BFS para explorar todas las posibles rutas desde el punto de inicio hasta la meta, evitando las paredes. Una vez encontrada la ruta, el agente muestra el laberinto con la ruta seguida marcada con el símbolo `Z`.
 
 Se crea un Laberinto por medio de una matriz, se hace un punto de inicio, se busca una ruta y se visualiza la ruta.
+
+# Prbolema 4 - Agente de Seleccion de rutas (Basado en utilidad)
+
+## Descripción 
+Diseña un agente que seleccione la mejor ruta en un entorno con múltiples caminos y valores
+de recompensa. El agente debe elegir el camino con mayor utilidad.
+
+## Funcionamiento
+El agente recibe un entorno en forma de matriz y un punto de inicio. Luego, utiliza el algoritmo BFS para explorar todas las posibles rutas desde el punto de inicio hasta la meta, evitando las paredes. Durante la exploración, el agente calcula la utilidad acumulada de cada ruta y selecciona la que maximiza esta utilidad. Finalmente, muestra la ruta óptima en el entorno, marcando el camino con el símbolo `Z`.
+
+Esta formado por Entorno, Punto de Inicio, una busqueda de ruta óptima, se calcula la utilidad y se visualiza la ruta.
